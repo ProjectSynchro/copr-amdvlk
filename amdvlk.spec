@@ -1,6 +1,6 @@
 %global build_repo https://github.com/GPUOpen-Drivers/AMDVLK
 
-%global latest_tag_data %(git ls-remote %{build_repo} | grep 'refs/tags/v-' | sort -Vrk 2 | head -1)
+%global latest_tag_data 'v-2024.Q2.1'
 %global default_xml_location %(test -f default.xml && echo default.xml || echo %{_sourcedir}/default.xml)
 
 %global numeric_ver %(echo %{latest_tag_data} | grep -oP 'v-.*' | grep -oP '[0-9A-Z.]+')
