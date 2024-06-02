@@ -48,7 +48,7 @@ Source3:       %{url}/xgl/archive/%{xgl_commit}.tar.gz#/xgl-%{xgl_commit}.tar.gz
 Source4:       %{url}/pal/archive/%{pal_commit}.tar.gz#/pal-%{pal_commit}.tar.gz
 Source5:       %{url}/gpurt/archive/%{gpurt_commit}.tar.gz#/gpurt-%{gpurt_commit}.tar.gz
 Source6:       %{url}/MetroHash/archive/%{metrohash_commit}.tar.gz#/metrohash-%{metrohash_commit}.tar.gz
-Source7:       %{url}/cwpack/archive/%{cwpack_commit}.tar.gz#/metrohash-%{cwpack_commit}.tar.gz
+Source7:       %{url}/cwpack/archive/%{cwpack_commit}.tar.gz#/cwpack-%{cwpack_commit}.tar.gz
 Source8:       default.xml
 
 Requires:      vulkan
