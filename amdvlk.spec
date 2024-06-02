@@ -48,11 +48,11 @@ Source1:       %{url}/llvm-project/archive/%{llvm_commit}.tar.gz#/llvm-project-%
 Source2:       %{url}/llpc/archive/%{llpc_commit}.tar.gz#/llpc-%{llpc_commit}.tar.gz
 Source3:       %{url}/xgl/archive/%{xgl_commit}.tar.gz#/xgl-%{xgl_commit}.tar.gz
 Source4:       %{url}/pal/archive/%{pal_commit}.tar.gz#/pal-%{pal_commit}.tar.gz
-Source4:       %{url}/gpurt/archive/%{gpurt_commit}.tar.gz#/gpurt-%{gpurt_commit}.tar.gz
-Source5:       %{url}/spvgen/archive/%{spvgen_commit}.tar.gz#/spvgen-%{spvgen_commit}.tar.gz
-Source6:       %{url}/MetroHash/archive/%{metrohash_commit}.tar.gz#/metrohash-%{metrohash_commit}.tar.gz
-Source7:       %{url}/cwpack/archive/%{cwpack_commit}.tar.gz#/metrohash-%{cwpack_commit}.tar.gz
-Source8:       default.xml
+Source5:       %{url}/gpurt/archive/%{gpurt_commit}.tar.gz#/gpurt-%{gpurt_commit}.tar.gz
+Source6:       %{url}/spvgen/archive/%{spvgen_commit}.tar.gz#/spvgen-%{spvgen_commit}.tar.gz
+Source7:       %{url}/MetroHash/archive/%{metrohash_commit}.tar.gz#/metrohash-%{metrohash_commit}.tar.gz
+Source8:       %{url}/cwpack/archive/%{cwpack_commit}.tar.gz#/metrohash-%{cwpack_commit}.tar.gz
+Source9:       default.xml
 
 Requires:      vulkan
 Requires:      vulkan-filesystem
@@ -78,7 +78,7 @@ The AMD Open Source Driver for Vulkan® is an open-source Vulkan driver
 for Radeon™ graphics adapters on Linux®.
 
 %prep
-%setup -q -c -n %{name}-%{version} -a 0 -a 1 -a 2 -a 3 -a 4 -a 5 -a 6
+%setup -q -c -n %{name}-%{version} -a 0 -a 1 -a 2 -a 3 -a 4 -a 5 -a 6 -a 7 -a 8
 ln -s AMDVLK-%{amdvlk_commit} AMDVLK
 ln -s llvm-project-%{llvm_commit} llvm-project
 ln -s llpc-%{llpc_commit} llpc
