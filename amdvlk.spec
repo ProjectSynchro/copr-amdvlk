@@ -16,7 +16,6 @@
 %global xgl_commit          %(xmllint --xpath 'string(//manifest/project[@name="xgl"]/@revision)' %{default_xml_location})
 %global pal_commit          %(xmllint --xpath 'string(//manifest/project[@name="pal"]/@revision)' %{default_xml_location})
 %global gpurt_commit        %(xmllint --xpath 'string(//manifest/project[@name="gpurt"]/@revision)' %{default_xml_location})
-%global spvgen_commit       %(xmllint --xpath 'string(//manifest/project[@name="spvgen"]/@revision)' %{default_xml_location})
 %global metrohash_commit    %(xmllint --xpath 'string(//manifest/project[@name="MetroHash"]/@revision)' %{default_xml_location})
 %global cwpack_commit       %(xmllint --xpath 'string(//manifest/project[@name="cwpack"]/@revision)' %{default_xml_location})
 
@@ -27,7 +26,6 @@
 %global xgl_short_commit        %(c=%{xgl_commit};        echo ${c:0:7})
 %global pal_short_commit        %(c=%{pal_commit};        echo ${c:0:7})
 %global gpurt_short_commit      %(c=%{gpurt_commit};      echo ${c:0:7})
-%global spvgen_short_commit     %(c=%{spvgen_commit};     echo ${c:0:7})
 %global metrohash_short_commit  %(c=%{metrohash_commit};  echo ${c:0:7})
 %global cwpack_short_commit     %(c=%{cwpack_commit};     echo ${c:0:7})
 
@@ -49,10 +47,9 @@ Source2:       %{url}/llpc/archive/%{llpc_commit}.tar.gz#/llpc-%{llpc_commit}.ta
 Source3:       %{url}/xgl/archive/%{xgl_commit}.tar.gz#/xgl-%{xgl_commit}.tar.gz
 Source4:       %{url}/pal/archive/%{pal_commit}.tar.gz#/pal-%{pal_commit}.tar.gz
 Source5:       %{url}/gpurt/archive/%{gpurt_commit}.tar.gz#/gpurt-%{gpurt_commit}.tar.gz
-Source6:       %{url}/spvgen/archive/%{spvgen_commit}.tar.gz#/spvgen-%{spvgen_commit}.tar.gz
-Source7:       %{url}/MetroHash/archive/%{metrohash_commit}.tar.gz#/metrohash-%{metrohash_commit}.tar.gz
-Source8:       %{url}/cwpack/archive/%{cwpack_commit}.tar.gz#/metrohash-%{cwpack_commit}.tar.gz
-Source9:       default.xml
+Source6:       %{url}/MetroHash/archive/%{metrohash_commit}.tar.gz#/metrohash-%{metrohash_commit}.tar.gz
+Source7:       %{url}/cwpack/archive/%{cwpack_commit}.tar.gz#/metrohash-%{cwpack_commit}.tar.gz
+Source8:       default.xml
 
 Requires:      vulkan
 Requires:      vulkan-filesystem
@@ -78,14 +75,13 @@ The AMD Open Source Driver for Vulkan® is an open-source Vulkan driver
 for Radeon™ graphics adapters on Linux®.
 
 %prep
-%setup -q -c -n %{name}-%{version} -a 0 -a 1 -a 2 -a 3 -a 4 -a 5 -a 6 -a 7 -a 8
+%setup -q -c -n %{name}-%{version} -a 0 -a 1 -a 2 -a 3 -a 4 -a 5 -a 6 -a 7
 ln -s AMDVLK-%{amdvlk_commit} AMDVLK
 ln -s llvm-project-%{llvm_commit} llvm-project
 ln -s llpc-%{llpc_commit} llpc
 ln -s xgl-%{xgl_commit} xgl
 ln -s pal-%{pal_commit} pal
 ln -s gpurt-%{pal_commit} gpurt
-ln -s spvgen-%{spvgen_commit} spvgen
 mkdir third_party && \
   ln -s ../MetroHash-%{metrohash_commit} third_party/metrohash
   ln -s ../cwpack-%{cwpack_commit} third_party/cwpack
