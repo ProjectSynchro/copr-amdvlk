@@ -17,7 +17,7 @@
 %global pal_commit          %(xmllint --xpath 'string(//manifest/project[@name="pal"]/@revision)' %{default_xml_location})
 %global gpurt_commit        %(xmllint --xpath 'string(//manifest/project[@name="gpurt"]/@revision)' %{default_xml_location})
 %global metrohash_commit    %(xmllint --xpath 'string(//manifest/project[@name="MetroHash"]/@revision)' %{default_xml_location})
-%global cwpack_commit       %(xmllint --xpath 'string(//manifest/project[@name="cwpack"]/@revision)' %{default_xml_location})
+%global cwpack_commit       %(xmllint --xpath 'string(//manifest/project[@name="CWPack"]/@revision)' %{default_xml_location})
 
 
 %global amdvlk_short_commit     %(c=%{amdvlk_commit};     echo ${c:0:7})
