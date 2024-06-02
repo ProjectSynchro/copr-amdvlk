@@ -38,13 +38,13 @@ Release:       %{rel_build}
 Summary:       AMD Open Source Driver For Vulkan
 License:       MIT
 Url:           https://github.com/GPUOpen-Drivers
-Source0:       %{url}/AMDVLK/archive/%{amdvlk_commit}.tar.gz#/AMDVLK-%{amdvlk_short_commit}.tar.gz
-Source1:       %{url}/llvm/archive/%{llvm_commit}.tar.gz#/llvm-%{llvm_short_commit}.tar.gz
-Source2:       %{url}/llpc/archive/%{llpc_commit}.tar.gz#/llpc-%{llpc_short_commit}.tar.gz
-Source3:       %{url}/xgl/archive/%{xgl_commit}.tar.gz#/xgl-%{xgl_short_commit}.tar.gz
-Source4:       %{url}/pal/archive/%{pal_commit}.tar.gz#/pal-%{pal_short_commit}.tar.gz
-Source5:       %{url}/spvgen/archive/%{spvgen_commit}.tar.gz#/spvgen-%{spvgen_short_commit}.tar.gz
-Source6:       %{url}/MetroHash/archive/%{metrohash_commit}.tar.gz#/metrohash-%{metrohash_short_commit}.tar.gz
+Source0:       %{url}/AMDVLK/archive/%{amdvlk_commit}.tar.gz#/AMDVLK-%{amdvlk_commit}.tar.gz
+Source1:       %{url}/llvm/archive/%{llvm_commit}.tar.gz#/llvm-%{llvm_commit}.tar.gz
+Source2:       %{url}/llpc/archive/%{llpc_commit}.tar.gz#/llpc-%{llpc_commit}.tar.gz
+Source3:       %{url}/xgl/archive/%{xgl_commit}.tar.gz#/xgl-%{xgl_commit}.tar.gz
+Source4:       %{url}/pal/archive/%{pal_commit}.tar.gz#/pal-%{pal_commit}.tar.gz
+Source5:       %{url}/spvgen/archive/%{spvgen_commit}.tar.gz#/spvgen-%{spvgen_commit}.tar.gz
+Source6:       %{url}/MetroHash/archive/%{metrohash_commit}.tar.gz#/metrohash-%{metrohash_commit}.tar.gz
 Source7:       default.xml
 
 Requires:      vulkan
