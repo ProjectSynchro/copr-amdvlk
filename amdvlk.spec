@@ -69,7 +69,7 @@ BuildRequires: libXrandr-devel
 BuildRequires: libxml2
 BuildRequires: gtest-devel
 BuildRequires: wayland-devel
-
+BuildRequires: pkgconfig(libssl)
 
 %description
 The AMD Open Source Driver for Vulkan® is an open-source Vulkan driver
