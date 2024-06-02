@@ -1,8 +1,6 @@
 %global build_repo https://github.com/GPUOpen-Drivers/AMDVLK
 
 %global latest_tag_data %(git ls-remote %{build_repo} | grep 'refs/tags/v-' | sort -Vrk 2 | head -1)
-%global latest_xml_data %(curl -ks https://raw.githubusercontent.com/GPUOpen-Drivers/AMDVLK/master/default.xml > default.xml)
-
 %global default_xml_location %(test -f default.xml && echo default.xml || echo /builddir/build/SOURCES/default.xml)
 
 %global numeric_ver %(echo %{latest_tag_data} | grep -oP 'v-.*' | grep -oP '[0-9A-Z.]+')
@@ -48,7 +46,7 @@ Source3:       %{url}/xgl/archive/%{xgl_commit}.tar.gz#/xgl-%{xgl_commit}.tar.gz
 Source4:       %{url}/pal/archive/%{pal_commit}.tar.gz#/pal-%{pal_commit}.tar.gz
 Source5:       %{url}/gpurt/archive/%{gpurt_commit}.tar.gz#/gpurt-%{gpurt_commit}.tar.gz
 Source6:       %{url}/MetroHash/archive/%{metrohash_commit}.tar.gz#/metrohash-%{metrohash_commit}.tar.gz
-Source7:       %{url}/cwpack/archive/%{cwpack_commit}.tar.gz#/cwpack-%{cwpack_commit}.tar.gz
+Source7:       %{url}/CWPack/archive/%{cwpack_commit}.tar.gz#/cwpack-%{cwpack_commit}.tar.gz
 Source8:       default.xml
 
 Requires:      vulkan
@@ -61,6 +59,7 @@ BuildRequires: ninja-build
 BuildRequires: python%{python3_pkgversion}
 BuildRequires: perl
 BuildRequires: curl
+BuildRequires: git
 BuildRequires: glibc-devel
 BuildRequires: libstdc++-devel
 BuildRequires: libxcb-devel
@@ -69,6 +68,7 @@ BuildRequires: libxshmfence-devel
 BuildRequires: libXrandr-devel
 BuildRequires: gtest-devel
 BuildRequires: wayland-devel
+BuildRequires: xmllint
 
 %description
 The AMD Open Source Driver for Vulkan® is an open-source Vulkan driver
@@ -84,17 +84,7 @@ ln -s pal-%{pal_commit} pal
 ln -s gpurt-%{pal_commit} gpurt
 mkdir third_party && \
   ln -s ../MetroHash-%{metrohash_commit} third_party/metrohash
-  ln -s ../cwpack-%{cwpack_commit} third_party/cwpack
-
-
-# workaround for AMDVLK#89
-for i in xgl/icd/CMakeLists.txt llpc/CMakeLists.txt llpc/imported/metrohash/CMakeLists.txt \
-  llvm-project/utils/benchmark/CMakeLists.txt llvm-project/utils/benchmark/test/CMakeLists.txt \
-  pal/src/core/imported/addrlib/CMakeLists.txt pal/src/core/imported/vam/CMakeLists.txt \
-  pal/shared/gpuopen/cmake/AMD.cmake
-do
-  sed -i "s/-Werror//g" $i
-done
+  ln -s ../CWPack-%{cwpack_commit} third_party/cwpack
 
 %build
 mkdir -p xgl/build && pushd xgl/build
