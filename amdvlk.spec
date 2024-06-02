@@ -57,6 +57,7 @@ BuildRequires: gcc-c++
 BuildRequires: cmake3
 BuildRequires: ninja-build
 BuildRequires: python%{python3_pkgversion}
+BuildRequires: python3-jinja2
 BuildRequires: perl
 BuildRequires: curl
 BuildRequires: git
